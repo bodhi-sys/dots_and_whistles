@@ -1,0 +1,20 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Nushell
+        uses: amtoine/setup-nu@v3
+        with:
+          version: 'latest'
+
+      - name: Install rip
+        run: cargo install rm-improved
+
+      - name: Run tests
+        run: nu test_rm.nu
