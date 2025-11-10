@@ -21,3 +21,5 @@ $env.PROMPT_INDICATOR = $"(ansi ($theme | get prompt_indicator))〉 (ansi reset)
 $env.PROMPT_INDICATOR_VI_INSERT = $"(ansi ($theme | get prompt_indicator_vi_insert))〉 (ansi reset)"
 $env.PROMPT_INDICATOR_VI_NORMAL = $"(ansi ($theme | get prompt_indicator_vi_normal))〉 (ansi reset)"
 $env.PROMPT_MULTILINE_INDICATOR = $"(ansi ($theme | get prompt_multiline_indicator))〉〉 (ansi reset)"
+
+source aliases.nu
