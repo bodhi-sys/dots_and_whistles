@@ -12,7 +12,11 @@ $env.config.keybindings ++= [{
 $env.config.hooks.env_change = ($env.config.hooks.env_change? | default {} | upsert PWD [{|| fre --add (pwd)}])
 
 source theme.nu
-$env.config.color_config = (pastel-theme)
+source theme_bright.nu
+
+# Set one of the themes below as active
+$env.config.color_config = (pastel-theme-bright)
+# $env.config.color_config = (pastel-theme)
 
 source prompt.nu
 let theme = $env.config.color_config
