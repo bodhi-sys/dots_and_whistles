@@ -22,7 +22,7 @@ print "Test 1 Passed"
 # 2. Test permanent deletion of a large file
 print "Test 2: Permanently deleting a large file"
 (str repeat "a" (11 * 1024 * 1024)) | save large_file.bin
-'y' | rm large_file.bin
+rm --force large_file.bin
 assert (not ("large_file.bin" | path exists))
 print "Test 2 Passed"
 
@@ -45,7 +45,7 @@ print "Test 4 Passed"
 print "Test 5: Permanently deleting a non-empty directory"
 mkdir non_empty_dir
 touch non_empty_dir/file.txt
-'y' | rm non_empty_dir
+rm --force non_empty_dir
 assert (not ("non_empty_dir" | path exists))
 print "Test 5 Passed"
 
