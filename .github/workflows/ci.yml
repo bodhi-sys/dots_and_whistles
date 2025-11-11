@@ -16,5 +16,8 @@ jobs:
       - name: Install rip
         run: cargo install rm-improved
 
+      - name: Install Carapace
+        run: go install github.com/rsteube/carapace-bin@latest
+
       - name: Run tests
         run: nu test_rm.nu

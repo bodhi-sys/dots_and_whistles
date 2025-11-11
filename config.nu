@@ -27,3 +27,8 @@ $env.PROMPT_INDICATOR_VI_NORMAL = $"(ansi ($theme | get prompt_indicator_vi_norm
 $env.PROMPT_MULTILINE_INDICATOR = $"(ansi ($theme | get prompt_multiline_indicator))〉〉 (ansi reset)"
 
 source aliases.nu
+
+# Carapace completion
+if (which carapace | length) > 0 {
+    source (carapace _carapace nushell)
+}
