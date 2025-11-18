@@ -1,0 +1,25 @@
+# Helix language server configuration
+# See https://docs.helix-editor.com/languages.html for more options
+
+[[language]]
+name = "rust"
+language-servers = [ "rust-analyzer" ]
+
+[[language]]
+name = "python"
+language-servers = [ "pyright" ]
+
+[[language]]
+name = "markdown"
+language-servers = [ "marksman" ]
+
+[[language]]
+name = "typescript"
+language-servers = [ "typescript-language-server", "deno-language-server", "lsp-ai" ]
+
+[language-server.lsp-ai]
+command = "lsp-ai"
+
+[language-server.lsp-ai.config]
+[language-server.lsp-ai.config.gemini]
+api_key = "XXXXXXX"

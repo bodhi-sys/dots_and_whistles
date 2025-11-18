@@ -1,0 +1,17 @@
+# Helix editor configuration
+# See https://docs.helix-editor.com/configuration.html for more options
+
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+mouse = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+# Buffer keyword completion is enabled by default in Helix.
+# There is no specific LSP to configure for this feature.
+# See https://docs.helix-editor.com/features.html#completion-sources

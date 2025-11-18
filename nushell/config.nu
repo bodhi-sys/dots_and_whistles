@@ -1,3 +1,6 @@
+# Main Nushell configuration file
+# This file sources all other configuration files from the same directory.
+
 $env.config.keybindings ++= [{
     name: fzf_fre
     modifier: alt
