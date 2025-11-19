@@ -20,6 +20,44 @@ language-servers = [ "typescript-language-server", "deno-language-server", "lsp-
 [language-server.lsp-ai]
 command = "lsp-ai"
 
+# Full-blown lsp-ai configuration for an OpenAI-compatible endpoint
 [language-server.lsp-ai.config]
-[language-server.lsp-ai.config.gemini]
-api_key = "XXXXXXX"
+[language-server.lsp-ai.config.memory.file_store]
+# The default memory store, which keeps track of open files.
+
+[language-server.lsp-ai.config.models.openai_model]
+type = "open_ai"
+# Set the chat endpoint to the local server
+chat_endpoint = "http://localhost:8080/v1/chat/completions"
+model = "gpt-5-mini"
+# Use a placeholder for the API key. lsp-ai can also read this from an environment variable.
+auth_token = "XXXXXXX"
+# Rate limit requests to avoid spamming the server
+max_requests_per_second = 5
+
+# Configure in-editor chat with a custom trigger and system prompt
+[language-server.lsp-ai.config.chat]
+[[language-server.lsp-ai.config.chat.prompts]]
+trigger = "!ai"
+action_display_name = "Chat with AI"
+model = "openai_model"
+
+[language-server.lsp-ai.config.chat.prompts.parameters]
+max_context = 4096
+max_tokens = 1024
+system = "You are a helpful AI assistant integrated into the Helix editor."
+
+# Configure code completion with specific model parameters
+[language-server.lsp-ai.config.completion]
+model = "openai_model"
+
+[language-server.lsp-ai.config.completion.parameters]
+max_context = 2048
+max_tokens = 128
+temperature = 0.7
+top_p = 0.9
+
+# Post-processing to clean up the completion output
+[language-server.lsp-ai.config.completion.post_process]
+remove_duplicate_start = true
+remove_duplicate_end = true
