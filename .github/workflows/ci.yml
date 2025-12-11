@@ -8,17 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Helix and LSPs
-        run: |
-          sudo add-apt-repository ppa:maveonair/helix-editor
-          sudo apt-get update
-          sudo apt-get install -y helix
-          npm install -g pyright
-          cargo install marksman
-          cargo install lsp-ai
-
-      - name: Check Helix configuration
-        run: hx --health
 
       - name: Install Nix
         uses: cachix/install-nix-action@v22
