@@ -33,3 +33,12 @@ jobs:
 
       - name: Check Helix configuration
         run: hx --health
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v22
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Build nix-on-droid flake
+        run: nix build ./nixpkgs#nixOnDroidConfigurations.default
