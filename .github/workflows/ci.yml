@@ -8,28 +8,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Nushell
-        uses: hustcer/setup-nu@v3
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v22
         with:
-          version: 'latest'
+          extra_nix_config: |
+            experimental-features = nix-command flakes
 
-      - name: Install rip
-        run: cargo install rm-improved
-
-      - name: Install Carapace
-        run: go install github.com/rsteube/carapace-bin@latest
-
-      - name: Run Nushell tests
-        run: nu nushell/test_rm.nu
-
-      - name: Install Helix and LSPs
-        run: |
-          sudo add-apt-repository ppa:maveonair/helix-editor
-          sudo apt-get update
-          sudo apt-get install -y helix
-          npm install -g pyright
-          cargo install marksman
-          cargo install lsp-ai
-
-      - name: Check Helix configuration
-        run: hx --health
+      - name: Build nix-on-droid flake
+        run: nix build ./nixpkgs#nixOnDroidConfigurations.default

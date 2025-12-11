@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+  # This is the configuration module for nix-on-droid.
   # Simply install just the packages
   environment.packages = with pkgs; [
     # User-facing stuff that you really really want to have
@@ -19,7 +20,7 @@
     nettools
     devenv
     gnumake
-    # uv
+    uv
     nodejs
     rustup
     gcc
