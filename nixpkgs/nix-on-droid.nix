@@ -20,7 +20,7 @@
     nettools
     devenv
     gnumake
-    # uv
+    uv
     nodejs
     rustup
     gcc
