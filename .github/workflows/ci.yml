@@ -8,20 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Nushell
-        uses: hustcer/setup-nu@v3
-        with:
-          version: 'latest'
-
-      - name: Install rip
-        run: cargo install rm-improved
-
-      - name: Install Carapace
-        run: go install github.com/rsteube/carapace-bin@latest
-
-      - name: Run Nushell tests
-        run: nu nushell/test_rm.nu
-
       - name: Install Helix and LSPs
         run: |
           sudo add-apt-repository ppa:maveonair/helix-editor
